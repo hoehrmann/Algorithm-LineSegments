@@ -19,8 +19,7 @@ our @EXPORT = qw(
   line_segment_points
 );
 
-our $VERSION = '0.01';
-
+our $VERSION = '0.02';
 
 sub _normalised_euclidean {
   my ($left, $right, $p) = @_;
@@ -78,7 +77,6 @@ sub line_segment_points {
 
   $o{continue} //= sub {
     my ($count, $cost) = @_;
-    say join "\t", $count, sprintf("%0.04f", $cost) if $count < 10;
     return 0 if $count <= 3; 
     return 1;
   };
@@ -159,8 +157,6 @@ sub line_segment_points {
   
   return @result;
 }
-
-
 
 1;
 

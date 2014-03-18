@@ -1,4 +1,7 @@
 Revision history for Perl extension Algorithm::LineSegments.
 
+0.02  March 2014
+  - Removed accidental debug print
+
 0.01  March 2014
   - Initial release
