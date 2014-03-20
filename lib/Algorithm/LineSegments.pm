@@ -19,7 +19,7 @@ our @EXPORT = qw(
   line_segment_points
 );
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub _normalised_euclidean {
   my ($left, $right, $p) = @_;

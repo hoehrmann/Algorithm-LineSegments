@@ -1,5 +1,9 @@
-use Test::More tests => 1;
+use Test::More;
 use Algorithm::LineSegments;
+
+eval "use Test::Deep";
+plan skip_all => "Test::Deep required" if $@;
+plan tests => 1;
 
 my @data = (
   9.4639403869223315e-08, 6.2436413372779498e-08,
@@ -106,11 +110,11 @@ my @data = (
 );
 
 my $ref = [
-  [ [   0, 9.46394038692233e-008 ], [  75, 3.66040410426649e-007 ] ],
-  [ [  76, 4.86445117076073e-007 ], [ 145, 2.0576526367222e-006 ] ],
-  [ [ 146, 3.16987325277296e-006 ], [ 199, 1.45127955875068e-006 ] ],
+  [ [   0, num(9.46394038692233e-008, 1) ], [  75, num(3.66040410426649e-007, 1) ] ],
+  [ [  76, num(4.86445117076073e-007, 1) ], [ 145, num(2.0576526367222e-006, 1) ] ],
+  [ [ 146, num(3.16987325277296e-006, 1) ], [ 199, num(1.45127955875068e-006, 1) ] ],
 ];
 
 my @cmp = line_segment_points(points => \@data);
 
-is_deeply(\@cmp, $ref, 'reftest');
+cmp_deeply(\@cmp, $ref, 'reftest');
